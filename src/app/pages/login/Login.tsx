@@ -1,21 +1,32 @@
-import { useNavigate } from "react-router-dom";
-
-//Forma de navegar entre rotas utilizando função
+import  { useState } from 'react';
 
 export const Login = () => {
-        const history = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-        const handleClick = () => {
-            history('/pagina-inicial')
+    const handleEntrar = () =>{
+        console.log(email, password);
 
-
-        }
+    }
 
     return (
         <div>
-            Login
+            <form>
 
-            <button onClick={handleClick}>Página Inicial</button>
+                <label>
+                    <span >Email</span>
+                    <input value={email} onChange={ e => setEmail(e.target.value)} placeholder=" Seu melhor email" />
+                </label>
+                <label>
+                    <span>Senha</span>
+                    <input value={password} onChange={ e => setPassword(e.target.value)} type="password" />
+                </label>
+
+                <button type="button" onClick={handleEntrar}>
+                    Entrar
+                </button>
+            </form>
+        
         </div>
 
     );
